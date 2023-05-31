@@ -1,0 +1,11 @@
+import sqlite3
+con = sqlite3.connect("mydb.db")
+cur = con.cursor()
+cur.execute("CREATE TABLE IF NOT EXISTS employee(empId int,empName varchar(40))")
+cur.execute("DROP TABLE IF EXISTS exam")
+cur.execute("INSERT INTO employee Values(101,'Akash')")
+res = cur.execute("SELECT empId FROM employee")
+print(res.fetchall())
+cur.execute("INSERT INTO student Values(103,'Rahul')")
+show_all_student = cur.execute("SELECT * FROM student")
+print(show_all_student.fetchall())
